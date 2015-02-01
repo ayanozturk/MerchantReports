@@ -1,0 +1,15 @@
+{
+  "name": "AffiliateWindow/test",
+  "description": "test code",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Ayan Ozturk",
+      "email": "ayanozturk@gmail.com"
+    }
+  ],
+  "require": {
+    "phpunit/phpunit": "4.4.4"
+  }
+}
