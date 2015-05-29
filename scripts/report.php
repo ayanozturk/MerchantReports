@@ -1,15 +1,9 @@
-tests
-vendor
-composer.json
-composer.lock
-composer.phar
-data.csv
-README.md<?php
+<?php
 date_default_timezone_set('Europe/London');
 header('Content-Type: text/html; charset=UTF-8');
 
-require_once '../models/TransactionTable.php';
-require_once '../models/Transaction.php';
+require_once __DIR__ . '/../models/TransactionTable.php';
+require_once __DIR__ . '/../models/Transaction.php';
 
 // If there is no argument, use customer ID 1 by default
 if (isset($argv[1]) && is_numeric($argv[1])) {

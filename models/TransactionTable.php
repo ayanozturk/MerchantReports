@@ -1,7 +1,9 @@
 <?php
-
 require_once ('Transaction.php');
 
+/**
+ * Class TransactionTable
+ */
 class TransactionTable
 {
 
@@ -9,17 +11,21 @@ class TransactionTable
      * Fetch All Transactions
      * @param int $customerId Customer Id
      * @return array
+     * @throws Exception
      */
     public function fetchAllTransactions($customerId = null)
     {
         $resultSet = array();
+        $dataFile = __DIR__ . '/../data.csv';
+        if (!file_exists($dataFile)) {
+            throw new Exception('Data file not found');
+        }
 
-        $file = fopen('../data.csv', 'r');
+        $file = fopen($dataFile, 'r');
+
         while (($line = fgetcsv($file)) !== FALSE) {
 
-
             $data = explode(';', $line[0]);
-
 
             if ($customerId && $data[0] != $customerId) {
                 continue;
@@ -61,6 +67,12 @@ class TransactionTable
         return $resultSet;
     }
 
+    /**
+     * @param $str
+     * @param $s
+     * @param null $l
+     * @return string
+     */
     protected function substr_unicode($str, $s, $l = null) {
         return join("", array_slice(
             preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY), $s, $l)

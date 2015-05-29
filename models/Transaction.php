@@ -1,6 +1,9 @@
 <?php
 require_once ('CurrencyConverter.php');
 
+/**
+ * Class Transaction
+ */
 class Transaction
 {
     protected $merchantId;
